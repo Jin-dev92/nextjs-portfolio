@@ -1,6 +1,6 @@
-import APIService, {createAxiosDefaults} from "../APIService";
+import ApiService, {createAxiosDefaults} from "./api.service";
 
-class MovieService extends APIService {
+class MovieService extends ApiService {
   constructor() {
     const config: createAxiosDefaults = {
       // https://www.themoviedb.org/documentation/api

@@ -1,7 +1,7 @@
-import APIService, {createAxiosDefaults} from "../APIService";
+import ApiService, {createAxiosDefaults} from "./api.service";
 import {GetCurrentWeatherDto} from "./dto";
 
-class WeatherService extends APIService {
+class WeatherService extends ApiService {
   constructor() {
     const config: createAxiosDefaults = {
       baseURL: process.env.REACT_APP_WEATHER_API_ROOT_URL,

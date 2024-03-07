@@ -1,20 +1,18 @@
 import axios, {
-  AxiosError as AAxiosError,
   AxiosInstance,
   AxiosRequestConfig,
-  CreateAxiosDefaults,
-} from "axios";
+  CreateAxiosDefaults
+} from 'axios';
 
 export type Response<T> = { code: number; data: T; total: number };
 
-export type AxiosError = AAxiosError<{ message: string }>;
-class APIService {
+class ApiService {
   private readonly axiosInstance: AxiosInstance;
   private readonly token: string | null | undefined;
 
   constructor(config: CreateAxiosDefaults) {
-    if (typeof localStorage !== "undefined") {
-      this.token = localStorage.getItem("accessToken") || null;
+    if (typeof localStorage !== 'undefined') {
+      this.token = localStorage.getItem('accessToken') || null;
     }
     this.axiosInstance = axios.create(config);
     const hasAuthorizationHeader =
@@ -27,25 +25,26 @@ class APIService {
       });
     }
   }
+
   protected async get<T, D = unknown>(
     url: string,
     params?: D,
     token?: string,
-    headers?: AxiosRequestConfig["headers"],
+    headers?: AxiosRequestConfig['headers']
   ) {
     return this.axiosInstance.get<Response<T>>(url, {
       params,
       headers: {
         ...headers,
-        Authorization: `Bearer ${token}`,
-      },
+        Authorization: `Bearer ${token}`
+      }
     });
   }
 
   protected async post<T, D>(
     url: string,
     data: D,
-    headers?: AxiosRequestConfig["headers"],
+    headers?: AxiosRequestConfig['headers']
   ) {
     return this.axiosInstance.post<Response<T>>(url, data, { headers });
   }
@@ -53,7 +52,7 @@ class APIService {
   protected async put<T, D>(
     url: string,
     data: D,
-    headers?: AxiosRequestConfig["headers"],
+    headers?: AxiosRequestConfig['headers']
   ) {
     return this.axiosInstance.put<Response<T>>(url, data, { headers });
   }
@@ -61,7 +60,7 @@ class APIService {
   protected async delete<T, D>(
     url: string,
     data?: D,
-    headers?: AxiosRequestConfig["headers"],
+    headers?: AxiosRequestConfig['headers']
   ) {
     return this.axiosInstance.delete<Response<T>>(url, { headers, data });
   }
@@ -69,11 +68,11 @@ class APIService {
   protected async patch<T, D>(
     url: string,
     data: D,
-    headers?: AxiosRequestConfig["headers"],
+    headers?: AxiosRequestConfig['headers']
   ) {
     return this.axiosInstance.patch<Response<T>>(url, data, { headers });
   }
 }
 
 export type createAxiosDefaults = CreateAxiosDefaults;
-export default APIService;
+export default ApiService;
