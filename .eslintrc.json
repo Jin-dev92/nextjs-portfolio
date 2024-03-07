@@ -16,9 +16,7 @@
     "eslint-config-prettier",
     "next/core-web-vitals"
   ],
-  "globals": {
-  },
-  "plugins": ["@typescript-eslint"],
+//  "plugins": ["prettier"],
   "env": {
     "browser": true,
     "jasmine": true,
@@ -130,9 +128,9 @@
     "no-unused-expressions": ["warn"],
     "no-unused-vars": "off",
     "no-shadow": "off",
-    "@typescript-eslint/no-shadow": ["error"],
-    "@typescript-eslint/camelcase": "off",
-    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+//    "@typescript-eslint/no-shadow": ["error"],
+//    "@typescript-eslint/camelcase": "off",
+//    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
     "prefer-destructuring": ["error", { "object": true, "array": false }],
     "lines-between-class-members": "off",
     "jsx-a11y/click-events-have-key-events": "off",
