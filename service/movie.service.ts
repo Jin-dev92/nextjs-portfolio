@@ -1,16 +1,17 @@
-import ApiService, {createAxiosDefaults} from "./api.service";
+import ApiService, { createAxiosDefaults } from './api.service';
+import { SERVICE_CONFIG } from '@/service/config/service.config';
 
 class MovieService extends ApiService {
   constructor() {
     const config: createAxiosDefaults = {
       // https://www.themoviedb.org/documentation/api
-      baseURL: process.env.REACT_APP_MOVIE_DB_API_ROOT_URL,
+      baseURL: SERVICE_CONFIG.MOVIE.REACT_APP_MOVIE_DB_API_ROOT_URL,
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_MOVIE_DB_API_ACCESS_TOKEN}`,
+        Authorization: `Bearer ${SERVICE_CONFIG.MOVIE.REACT_APP_MOVIE_DB_API_ACCESS_TOKEN}`,
       },
       params: {
-        language: "ko",
-        include_image_language: "ko",
+        language: 'ko',
+        include_image_language: 'ko',
       },
     };
     super(config);
