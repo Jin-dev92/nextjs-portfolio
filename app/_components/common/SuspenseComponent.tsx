@@ -2,21 +2,22 @@ import { ErrorBoundary } from 'react-error-boundary';
 import React, { useCallback } from 'react';
 
 import { useQueryErrorResetBoundary } from '@tanstack/react-query';
-import GameLoadingSpinner from '@/app/_components/common/spinner/GameLoadingSpinner';
-import { SpinnerTypeEnum } from '@/constant/enum/spinner-type.enum';
+import GameLoadingSpinner from '@/app/_components/common/indicator/spinner/GameLoadingSpinner';
+import { IndicatorTypeEnum } from '@/constant/enum/indicator-type.enum';
+import MediumSkeleton from '@/app/_components/common/indicator/skeleton/MediumSkeleton';
 
 type SuspenseComponentProps = {
   children: React.ReactNode;
-  spinnerType: SpinnerTypeEnum;
+  spinnerType: IndicatorTypeEnum;
 };
 export const SuspenseComponent = ({ children, spinnerType }: SuspenseComponentProps) => {
   const { reset } = useQueryErrorResetBoundary();
   const Spinner = useCallback(() => {
     switch (spinnerType) {
-      case SpinnerTypeEnum.GAME:
+      case IndicatorTypeEnum.GAME:
         return <GameLoadingSpinner />;
-      case SpinnerTypeEnum.SKELETON:
-        return;
+      case IndicatorTypeEnum.SKELETON:
+        return <MediumSkeleton />;
       default:
         return;
     }
