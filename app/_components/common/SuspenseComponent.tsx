@@ -1,14 +1,26 @@
 import { ErrorBoundary } from 'react-error-boundary';
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import { useQueryErrorResetBoundary } from '@tanstack/react-query';
-import LoadingIndicator from '@/app/_components/common/indicator/LoadingIndicator';
+import GameLoadingSpinner from '@/app/_components/common/spinner/GameLoadingSpinner';
+import { SpinnerTypeEnum } from '@/constant/enum/spinner-type.enum';
 
 type SuspenseComponentProps = {
   children: React.ReactNode;
+  spinnerType: SpinnerTypeEnum;
 };
-export const SuspenseComponent = ({ children }: SuspenseComponentProps) => {
+export const SuspenseComponent = ({ children, spinnerType }: SuspenseComponentProps) => {
   const { reset } = useQueryErrorResetBoundary();
+  const Spinner = useCallback(() => {
+    switch (spinnerType) {
+      case SpinnerTypeEnum.GAME:
+        return <GameLoadingSpinner />;
+      case SpinnerTypeEnum.SKELETON:
+        return;
+      default:
+        return;
+    }
+  }, [spinnerType]);
   return (
     <ErrorBoundary
       onReset={reset}
@@ -19,7 +31,7 @@ export const SuspenseComponent = ({ children }: SuspenseComponentProps) => {
         </div>
       )}
     >
-      <React.Suspense fallback={<LoadingIndicator />}>{children}</React.Suspense>
+      <React.Suspense fallback={Spinner()}>{children}</React.Suspense>
     </ErrorBoundary>
   );
 };
