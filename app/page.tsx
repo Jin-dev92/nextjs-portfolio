@@ -1,11 +1,13 @@
 import Stack from './_components/common/layout/Stack';
-import styles from './page.module.css';
 import React from 'react';
+import AppIcon from '@/app/_components/common/icon/AppIcon';
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <Stack>s</Stack>
+    <main className={''}>
+      <Stack>
+        <AppIcon src={'/images/steam_logo.png'} />
+      </Stack>
     </main>
   );
 }
