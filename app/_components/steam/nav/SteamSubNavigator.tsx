@@ -5,7 +5,7 @@ type Props = {};
 
 export function SteamSubNavigator(props: Props) {
   return (
-    <div className={'flex flex-row items-center'}>
+    <div className={'flex flex-row items-center justify-evenly w-full'}>
       <div className={'flex flex-row items-center gap-[20px]'}>
         <div className={''}>내 상점</div>
         <div className={''}>신규 및 특잡</div>
