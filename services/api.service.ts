@@ -1,78 +1,88 @@
-import axios, {
-  AxiosInstance,
-  AxiosRequestConfig,
-  CreateAxiosDefaults
-} from 'axios';
+import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, CreateAxiosDefaults } from 'axios';
+import { replaceFalsyData } from '@/utils/params.util';
 
-export type Response<T> = { code: number; data: T; total: number };
+export interface Response<T> {
+  code: number;
+  data: T & { total?: number };
+}
 
-class ApiService {
+interface ErrorResponse<T> {
+  code: number;
+  message: string;
+  data: T;
+}
+
+// interface ApiConstructorArgs {
+//   baseUrl: string;
+//   headers?: AxiosRequestConfig['headers'];
+// }
+
+export interface CustomError extends AxiosError<ErrorResponse<{}>> {}
+
+class Api {
   private readonly axiosInstance: AxiosInstance;
-  private readonly token: string | null | undefined;
+  protected readonly token: string | null | undefined;
 
   constructor(config: CreateAxiosDefaults) {
-    if (typeof localStorage !== 'undefined') {
-      this.token = localStorage.getItem('accessToken') || null;
-    }
+    // if (typeof localStorage !== 'undefined') {
+    //   this.token = localStorage.getItem('accessToken') ?? null;
+    // }
     this.axiosInstance = axios.create(config);
-    const hasAuthorizationHeader =
-      !!this.axiosInstance.defaults.headers.common.Authorization;
-    const hasToken = !!this.token;
-    if (!hasAuthorizationHeader && hasToken) {
-      this.axiosInstance.interceptors.request.use((config) => {
-        config.headers.Authorization = `Bearer ${this.token}`;
+
+    const hasAuthorizationHeader = Boolean(
+      this.axiosInstance.defaults.headers.common.Authorization,
+    );
+    const hasToken = Boolean(this.token);
+
+    this.axiosInstance.interceptors.request.use(
+      config => {
+        if (config.data) {
+          if (config.headers['Content-Type'] !== 'multipart/form-data') {
+            config.data = replaceFalsyData(config.data);
+          }
+          if (!hasAuthorizationHeader && hasToken) {
+            config.headers.Authorization = `Bearer ${this.token}`;
+            return config;
+          }
+        }
+        if (config.params) {
+          config.params = replaceFalsyData(config.params);
+        }
         return config;
-      });
-    }
+      },
+      function (error) {
+        // 요청 오류가 있는 작업 수행
+        return Promise.reject(error);
+      },
+    );
   }
 
   protected async get<T, D = unknown>(
     url: string,
     params?: D,
-    token?: string,
-    headers?: AxiosRequestConfig['headers']
+    headers?: AxiosRequestConfig['headers'],
   ) {
     return this.axiosInstance.get<Response<T>>(url, {
       params,
-      headers: {
-        ...headers,
-        Authorization: `Bearer ${token}`
-      }
+      headers,
     });
   }
 
-  protected async post<T, D>(
-    url: string,
-    data: D,
-    headers?: AxiosRequestConfig['headers']
-  ) {
+  protected async post<T, D>(url: string, data: D, headers?: AxiosRequestConfig['headers']) {
     return this.axiosInstance.post<Response<T>>(url, data, { headers });
   }
 
-  protected async put<T, D>(
-    url: string,
-    data: D,
-    headers?: AxiosRequestConfig['headers']
-  ) {
+  protected async put<T, D>(url: string, data: D, headers?: AxiosRequestConfig['headers']) {
     return this.axiosInstance.put<Response<T>>(url, data, { headers });
   }
 
-  protected async delete<T, D>(
-    url: string,
-    data?: D,
-    headers?: AxiosRequestConfig['headers']
-  ) {
+  protected async delete<T, D>(url: string, data?: D, headers?: AxiosRequestConfig['headers']) {
     return this.axiosInstance.delete<Response<T>>(url, { headers, data });
   }
 
-  protected async patch<T, D>(
-    url: string,
-    data: D,
-    headers?: AxiosRequestConfig['headers']
-  ) {
+  protected async patch<T, D>(url: string, data: D, headers?: AxiosRequestConfig['headers']) {
     return this.axiosInstance.patch<Response<T>>(url, data, { headers });
   }
 }
 
-export type createAxiosDefaults = CreateAxiosDefaults;
-export default ApiService;
+export default Api;

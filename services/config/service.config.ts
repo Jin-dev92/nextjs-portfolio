@@ -5,7 +5,7 @@ dotenv.config();
 export const SERVICE_CONFIG = {
   COMMON: {
     REACT_APP_SERVICE_KEY: process.env.REACT_APP_SERVICE_KEY,
-    NODE_ENV: process.env.NODE_ENV,
+    SERVER_URL: process.env.REACT_APP_SERVER_URL,
   },
   MOVIE: {
     REACT_APP_MOVIE_SERVICE_KEY: process.env.REACT_APP_MOVIE_SERVICE_KEY,

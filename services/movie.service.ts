@@ -1,9 +1,10 @@
-import ApiService, { createAxiosDefaults } from './api.service';
-import { SERVICE_CONFIG } from '@/service/config/service.config';
+import ApiService from './api.service';
+import { SERVICE_CONFIG } from '@/services/config/service.config';
+import { CreateAxiosDefaults } from 'axios';
 
 class MovieService extends ApiService {
   constructor() {
-    const config: createAxiosDefaults = {
+    const config: CreateAxiosDefaults = {
       // https://www.themoviedb.org/documentation/api
       baseURL: SERVICE_CONFIG.MOVIE.REACT_APP_MOVIE_DB_API_ROOT_URL,
       headers: {
@@ -23,4 +24,4 @@ class MovieService extends ApiService {
   getGenresMovieList = (config: {}) => this.get(`/genre/movie/list`, config);
 }
 
-export default MovieService;
+export default new MovieService();

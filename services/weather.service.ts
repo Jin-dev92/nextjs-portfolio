@@ -1,10 +1,11 @@
-import ApiService, { createAxiosDefaults } from './api.service';
+import ApiService from './api.service';
 import { GetCurrentWeatherDto } from './dto';
-import { SERVICE_CONFIG } from '@/service/config/service.config';
+import { SERVICE_CONFIG } from '@/services/config/service.config';
+import { CreateAxiosDefaults } from 'axios';
 
 class WeatherService extends ApiService {
   constructor() {
-    const config: createAxiosDefaults = {
+    const config: CreateAxiosDefaults = {
       baseURL: SERVICE_CONFIG.WEATHER.REACT_APP_WEATHER_API_ROOT_URL,
       params: {
         serviceKey: SERVICE_CONFIG.COMMON.REACT_APP_SERVICE_KEY,
@@ -19,3 +20,5 @@ class WeatherService extends ApiService {
     );
   };
 }
+
+export default new WeatherService();
