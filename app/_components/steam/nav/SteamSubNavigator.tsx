@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import Image from 'next/image';
 
 type Props = {};
 
@@ -17,7 +18,7 @@ export const SteamSubNavigator = (props: Props) => {
       <div className="flex flex-row items-center gap-[4px]">
         <input type="text" placeholder="검색하기" />
         <button className="rounded-[5px]" type="button">
-          <img src="/icons/search_icon_btn.png" alt="search" />
+          <Image src="/icons/search_icon_btn.png" alt="search" />
         </button>
       </div>
     </div>

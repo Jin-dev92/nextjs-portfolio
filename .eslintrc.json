@@ -50,7 +50,7 @@
 //        "aspects": ["noHref", "invalidHref", "preferButton"]
 //      }
     ],
-    "react/function-component-definition": ["warn", { "namedComponents": "arrow-function" }],
+    "react/function-component-definition": ["off", { "namedComponents": "arrow-function" }],
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "react/jsx-props-no-spreading": "off",

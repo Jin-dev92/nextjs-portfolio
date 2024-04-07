@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 type Props = {};
 
@@ -9,7 +10,7 @@ export const SteamPageFooter = (props: Props) => {
     <div className="my-0 mx-auto h-fit flex flex-row items-center justify-evenly bg-[#171a21] pt-[16px] pb-[60px]">
       <div className="flex flex-row items-center gap-[8px]">
         <Link href="https://www.valvesoftware.com/en/" target="_blank">
-          <img src="/images/steam/footer_logo_value.png" alt="logo" className="h-[30px] w-auto" />
+          <Image src="/images/steam/footer_logo_value.png" alt="logo" className="h-[30px] w-auto" />
         </Link>
         <div className="flex flex-col">
           <p className="text-[12px] text-steam-grey">
@@ -39,7 +40,7 @@ export const SteamPageFooter = (props: Props) => {
         </div>
       </div>
       <div>
-        <img src="/images/steam/logo_steam_footer.png" alt="steam_logo_footer" />
+        <Image src="/images/steam/logo_steam_footer.png" alt="steam_logo_footer" />
       </div>
     </div>
   );

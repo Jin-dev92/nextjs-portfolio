@@ -2,6 +2,7 @@
 import * as React from 'react';
 import Stack from '@/app/_components/common/layout/Stack';
 import Link from 'next/link';
+import Image from 'next/image';
 
 type Props = {};
 export const SteamPageHeader = (props: Props) => {
@@ -13,7 +14,7 @@ export const SteamPageHeader = (props: Props) => {
         <Link href="#">언어</Link>
       </Stack>
       <Stack direction="row" twStyle="items-center">
-        <img
+        <Image
           className="w-[176px]"
           src="https://store.akamai.steamstatic.com/public/shared/images/responsive/header_logo.png"
           alt="logo"
