@@ -19,7 +19,6 @@ export const SuspenseComponent = ({ children, spinnerType }: SuspenseComponentPr
       case IndicatorTypeEnum.SKELETON:
         return <MediumSkeleton />;
       default:
-        return;
     }
   }, [spinnerType]);
   return (
@@ -28,7 +27,9 @@ export const SuspenseComponent = ({ children, spinnerType }: SuspenseComponentPr
       fallbackRender={({ resetErrorBoundary }) => (
         <div>
           There was an error!
-          <button onClick={() => resetErrorBoundary()}>Try again</button>
+          <button onClick={() => resetErrorBoundary()} type="button">
+            Try again
+          </button>
         </div>
       )}
     >

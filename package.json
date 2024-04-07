@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "node_modules-rm": "rm -rf ./**/node_modules ./node_modules ./yarn.lock ./package-lock.json",
-    "format": "prettier --write \"packages/**/*.ts|js\""
+    "format": "prettier --write \"app/**/*.ts|js\""
   },
   "dependencies": {
     "@tanstack/react-query": "^5.25.0",
