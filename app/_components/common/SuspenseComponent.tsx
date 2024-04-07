@@ -31,7 +31,7 @@ export const SuspenseComponent = ({ children, spinnerType }: SuspenseComponentPr
   const { reset } = useQueryErrorResetBoundary();
 
   return (
-    <ErrorBoundary onReset={reset} fallbackRender={props => <ErrorBoundaryFallback {...props} />}>
+    <ErrorBoundary onReset={reset} fallbackRender={ErrorBoundaryFallback}>
       <Suspense fallback={<Spinner spinnerType={spinnerType} />}>{children}</Suspense>
     </ErrorBoundary>
   );
