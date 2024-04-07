@@ -19,19 +19,19 @@ export const SteamPageFooter = (props: Props) => {
           <div className="flex flex-row gap-[16px]">
             <p className="text-[12px] text-steam-grey">부가 가치세 포함</p>
             <div className="flex flex-row items-center gap-[8px]">
-              <Link href="" className="text-[12px]">
+              <Link href="#" className="text-[12px]">
                 개인정보 보호정책
               </Link>
-              <Link href="" className="text-[12px]">
+              <Link href="#" className="text-[12px]">
                 사용권
               </Link>
-              <Link href="" className="text-[12px]">
+              <Link href="#" className="text-[12px]">
                 Steam 이용 약관
               </Link>
-              <Link href="" className="text-[12px]">
+              <Link href="#" className="text-[12px]">
                 환불
               </Link>
-              <Link href="" className="text-[12px]">
+              <Link href="#" className="text-[12px]">
                 쿠키
               </Link>
             </div>

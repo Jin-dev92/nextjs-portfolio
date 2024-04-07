@@ -42,6 +42,14 @@
     "arrow-body-style": "off",
     "no-plusplus": "off",
     "react/display-name": "off",
+    "jsx-a11y/anchor-is-valid": [
+      "warn"
+//      {
+//        "components": ["Link"],
+//        "specialLink": ["hrefLeft", "hrefRight"],
+//        "aspects": ["noHref", "invalidHref", "preferButton"]
+//      }
+    ],
     "react/function-component-definition": ["warn", { "namedComponents": "arrow-function" }],
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],

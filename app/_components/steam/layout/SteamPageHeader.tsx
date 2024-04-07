@@ -9,8 +9,8 @@ export const SteamPageHeader = (props: Props) => {
     <Stack>
       <Stack direction="row" spacing={4}>
         <button type="button">Steam 설치</button>
-        <Link href="">로그인</Link>
-        <Link href="">언어</Link>
+        <Link href="#">로그인</Link>
+        <Link href="#">언어</Link>
       </Stack>
       <Stack direction="row" twStyle="items-center">
         <img
@@ -20,16 +20,16 @@ export const SteamPageHeader = (props: Props) => {
         />
         <ul className="list-none inline-flex gap-4">
           <li>
-            <Link href="">상점</Link>
+            <Link href="#">상점</Link>
           </li>
           <li>
-            <Link href="">커뮤니티</Link>
+            <Link href="#">커뮤니티</Link>
           </li>
           <li>
-            <Link href="">정보</Link>
+            <Link href="#">정보</Link>
           </li>
           <li>
-            <Link href="">지원</Link>
+            <Link href="#">지원</Link>
           </li>
         </ul>
       </Stack>
