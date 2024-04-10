@@ -8,6 +8,7 @@ export const SteamPageBody = (props: Props) => {
   return (
     <div className="w-full flex flex-col items-center">
       <SteamSubNavigator />
+      {/* <CommonCarousel initialImages={[]} /> */}
     </div>
   );
 };

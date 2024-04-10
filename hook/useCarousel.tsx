@@ -1,6 +1,6 @@
-// @flow
+'use client';
 
-import { useState } from 'react';
+import React from 'react';
 
 type CarouselItem = {
   id: number;
@@ -8,16 +8,17 @@ type CarouselItem = {
   imageUrl: string;
 };
 
-type Props = {
-  fetchData: () => Promise<CarouselItem[]>;
+export type useCarouselProps = {
+  fetchData?: () => Promise<CarouselItem[]>;
   initialImages: [];
 };
 
-export const useCarousel = ({ fetchData, initialImages }: Props) => {
-  const [carouselItems, setCarouselItems] = useState<CarouselItem[]>(initialImages);
-  const [currentIndex, setCurrentIndex] = useState(0);
+export default function useCarousel({ fetchData, initialImages }: useCarouselProps) {
+  const [carouselItems, setCarouselItems] = React.useState<CarouselItem[]>(initialImages);
+  const [currentIndex, setCurrentIndex] = React.useState(0);
 
   const fetchNewCarouselItems = async () => {
+    if (fetchData === undefined) return;
     const newItems = await fetchData();
     if (newItems.length === 0) return;
     setCarouselItems(prev => [...prev, ...newItems]);
@@ -34,5 +35,9 @@ export const useCarousel = ({ fetchData, initialImages }: Props) => {
     setCurrentIndex(prev => (prev - 1 + carouselItems.length) % carouselItems.length);
   };
 
-  return { carouselItems, currentIndex, handleNext, handlePrev };
-};
+  const moveIndex = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  return { carouselItems, currentIndex, handleNext, handlePrev, moveIndex };
+}
