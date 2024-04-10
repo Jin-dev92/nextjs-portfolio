@@ -1,4 +1,4 @@
-// @flow
+'use client';
 
 import useCarousel, { useCarouselProps } from '@/hook/useCarousel';
 import React from 'react';
