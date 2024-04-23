@@ -14,11 +14,7 @@ export const SteamPageHeader = (props: Props) => {
         <Link href="#">언어</Link>
       </Stack>
       <Stack direction="row" twStyle="items-center">
-        <Image
-          className="w-[176px]"
-          src="https://store.akamai.steamstatic.com/public/shared/images/responsive/header_logo.png"
-          alt="logo"
-        />
+
         <ul className="list-none inline-flex gap-4">
           <li>
             <Link href="#">상점</Link>
