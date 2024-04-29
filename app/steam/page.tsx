@@ -5,7 +5,7 @@ import { SteamPageFooter } from '@/app/_components/steam/layout/SteamPageFooter'
 
 export default function SteamPage() {
   return (
-    <main className="bg-repeat w-screen bg-steam-background h-screen text-steam-white flex flex-col items-center">
+    <main className="bg-repeat w-full h-full bg-steam-background text-steam-white mx-auto my-0">
       <SteamPageHeader />
       <SteamPageBody />
       <SteamPageFooter />
