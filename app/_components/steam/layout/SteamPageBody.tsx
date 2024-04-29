@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
-import CommonCarousel from '@/app/_components/common/carousel/CommonCarousel';
 import Image from 'next/image';
+import CommonCarousel from '@/app/_components/common/carousel/CommonCarousel';
 
 type Props = {};
 

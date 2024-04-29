@@ -3,6 +3,8 @@
 import * as React from 'react';
 import Slider, { Settings } from 'react-slick';
 import { CarouselItem, ICarouselItem } from '@/app/_components/common/carousel/CarouselItem';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 type Props = { title: string; items: ICarouselItem[] };
 
