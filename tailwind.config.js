@@ -10,6 +10,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        subTitle: '14px',
+      },
       backgroundImage: {
         'steam-background': "url('/images/steam/bg_steam.png')",
         'steam-value-logo': "url('/images/steam/footer_logo_value.png')",
@@ -20,7 +23,8 @@ module.exports = {
         'steam-secondary': '#acdbf5',
         'steam-grey': '#8F98A0',
         'steam-white': '#C6D4DF',
-
+        'steam-sub-title': 'rgb(136, 189, 233)',
+        'steam-description-text': 'rgb(122, 139, 157)',
         white: '#ffffff',
         black: '#000000',
         'black-rgb': '0, 0, 0',

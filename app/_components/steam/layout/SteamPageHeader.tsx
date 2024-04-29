@@ -2,7 +2,6 @@
 import * as React from 'react';
 import Stack from '@/app/_components/common/layout/Stack';
 import Link from 'next/link';
-import Image from 'next/image';
 
 type Props = {};
 export const SteamPageHeader = (props: Props) => {
@@ -14,7 +13,6 @@ export const SteamPageHeader = (props: Props) => {
         <Link href="#">언어</Link>
       </Stack>
       <Stack direction="row" twStyle="items-center">
-
         <ul className="list-none inline-flex gap-4">
           <li>
             <Link href="#">상점</Link>
