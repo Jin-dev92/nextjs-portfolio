@@ -15,7 +15,7 @@ export default function CommonCarousel({ title, items }: Props) {
     slidesToScroll: 1,
   };
   return (
-    <div className="flex flex-col gap-[8px] ">
+    <div className="flex flex-col gap-[8px] min-w-[400px] ">
       {title && <p className="text-subTitle">{title}</p>}
       <Slider {...defaultOptions}>
         {items.map((item, index) => (

@@ -1,16 +1,14 @@
 // @flow
 import * as React from 'react';
-import { SteamSubNavigator } from '@/app/_components/steam/nav/SteamSubNavigator';
 import CommonCarousel from '@/app/_components/common/carousel/CommonCarousel';
 
 type Props = {};
 
 export const SteamPageBody = (props: Props) => {
   return (
-    <body className="w-full flex flex-col bg-steam-background flex flex-col items-center">
-      <SteamSubNavigator />
-      <div className="flex flex-row">
-        <aside className="">
+    <div>
+      <div className="flex flex-row w-full">
+        <aside className="w-1/3">
           <div className="flex flex-col gap-[16px]">
             <div>
               <p className="text-steam-sub-title">STEAM DECK</p>
@@ -54,8 +52,10 @@ export const SteamPageBody = (props: Props) => {
             </ul>
           </nav>
         </aside>
-        <CommonCarousel items={[]} title="특집 및 추천 제품" />
+        <div className="w-2/3">
+          <CommonCarousel items={[]} title="특집 및 추천 제품" />
+        </div>
       </div>
-    </body>
+    </div>
   );
 };
