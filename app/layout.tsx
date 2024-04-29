@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <ReactQueryClientProvider>
-      <html lang="ko">
+      <html lang="ko" className="w-screen h-screen">
         <body className="w-full h-auto flex flex-col bg-[#171D25]">{children}</body>
       </html>
     </ReactQueryClientProvider>
