@@ -20,7 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <ReactQueryClientProvider>
-      <html lang="ko" className="w-screen h-screen m-0 bg-[#171D25]">
+      <html
+        lang="ko"
+        className="w-screen h-screen m-0 bg-[#171D25] overflow-x-hidden overflow-y-auto"
+      >
         <body className="w-full h-full bg-steam-background">{children}</body>
       </html>
     </ReactQueryClientProvider>

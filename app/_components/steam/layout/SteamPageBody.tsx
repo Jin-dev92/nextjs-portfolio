@@ -10,7 +10,7 @@ export const SteamPageBody = (props: Props) => {
     <div className="mt-[2vh]">
       <div className="flex flex-row w-full">
         <aside className="w-1/3">
-          <div className="flex flex-col gap-[16px]">
+          <div className="flex flex-col gap-[24px]">
             <div className="flex flex-col gap-[4px]">
               <Image
                 src="https://cdn.akamai.steamstatic.com/store/steamdeck/steamdeck_promo_09.png"
