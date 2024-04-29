@@ -1,20 +1,33 @@
 // @flow
 import * as React from 'react';
 import CommonCarousel from '@/app/_components/common/carousel/CommonCarousel';
+import Image from 'next/image';
 
 type Props = {};
 
 export const SteamPageBody = (props: Props) => {
   return (
-    <div>
+    <div className="mt-[2vh]">
       <div className="flex flex-row w-full">
         <aside className="w-1/3">
           <div className="flex flex-col gap-[16px]">
-            <div>
+            <div className="flex flex-col gap-[4px]">
+              <Image
+                src="https://cdn.akamai.steamstatic.com/store/steamdeck/steamdeck_promo_09.png"
+                width={179}
+                height={72}
+                alt="Steam Deck"
+              />
               <p className="text-steam-sub-title">STEAM DECK</p>
               <p>어디서나 즐기는, Steam 라이브러리</p>
             </div>
-            <div>
+            <div className="flex flex-col gap-[4px]">
+              <Image
+                src="https://store.akamai.steamstatic.com/public/images/gift/steamcards_promo_03.png"
+                width={179}
+                height={72}
+                alt="Steam Deck"
+              />
               <p className="text-steam-sub-title">STEAM 기프트 카드</p>
               <p>게임을 선물하세요</p>
             </div>
